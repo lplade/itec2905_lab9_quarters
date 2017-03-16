@@ -1,6 +1,11 @@
 .idea
 *.pyc
+
 venv
 test
 db*
 *.db
+
+my_env
+
+
