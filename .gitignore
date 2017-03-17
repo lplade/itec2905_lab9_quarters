@@ -1,2 +1,10 @@
 .idea
 *.pyc
+
+venv
+test
+db*
+*.db
+img
+
+my_env
