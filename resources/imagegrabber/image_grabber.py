@@ -2,16 +2,23 @@ import json
 import urllib.request
 import os
 
-file = open('states.json').read()
-data = json.loads(file)
-output_dir = "img"
-BASE_PATH = "https://www.usmint.gov/images/mint_programs/50sq_program/states/"
+# http://stackoverflow.com/questions/1270951/python-how-to-refer-to-relative-paths-of-resources-when-working-with-code-repo
+fn = os.path.join(os.path.dirname(__file__), 'states.json')
 
-# XX_Designs.gif
+with open(fn) as json_data:
+    data = json.load(json_data)
+    output_dir = "img"
+    BASE_PATH = \
+        "https://www.usmint.gov/images/mint_programs/50sq_program/states/"
 
-for key in data:
-    filename = "{}_Designs.gif".format(str(key))
-    url = '{}{}'.format(BASE_PATH, filename)
-    print(url)
-    output_file = os.path.join(os.path.curdir, output_dir, filename)
-    urllib.request.urlretrieve(url, output_file)
+    # https://www.usmint.gov/images/mint_programs/50sq_program/states/OK_Designs.gif
+
+    # XX_Designs.gif
+
+    for key in data:
+        print(key)
+        filename = "{}_Designs.gif".format(str(key))
+        url = '{}{}'.format(BASE_PATH, filename)
+        print(url)
+        output_file = os.path.join(os.path.dirname(__file__), output_dir, filename)
+        urllib.request.urlretrieve(url, output_file)
