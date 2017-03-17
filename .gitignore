@@ -1,10 +1,9 @@
 .idea
 *.pyc
-
+__pycache__
 venv
-test
+my_env
 db*
 *.db
 img
 
-my_env
